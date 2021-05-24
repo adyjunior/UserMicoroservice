@@ -1,0 +1,47 @@
+server:
+  #port: ${PORT:0}
+  port: 8080
+
+spring:
+  #application:
+    #name: users-ws
+  #devtools:
+    #restart:
+      #enabled: true
+  datasource:
+    url: jdbc:postgresql://localhost:5432/userservices
+    username: postgres
+    password: user
+    jpa:
+      show-sql: true
+    # Hibernate ddl auto (create, create-drop, validate, update)
+      hibernate:
+        ddl-auto: update
+
+    ## Hibernate Properties
+    # The SQL dialect makes Hibernate generate better SQL for the chosen database
+      properties:
+        hibernate:
+          dialect: org.hibernate.dialect.PostgreSQL81Dialect
+          format_sql: true
+  jackson:
+    serialization:
+      fail-on-empty-beans: false
+
+
+#eureka:
+  #client:
+    #serviceUrl:
+      #defaultZone: http://localhost:8010/eureka
+  #istace:
+    #istance-id: ${spring.cloud.client.hostname}:${spring.application.name}:${spring.application.instance_id:${random.value}}
+
+logging:
+  level:
+    org:
+      springframework: info
+
+
+
+
+
